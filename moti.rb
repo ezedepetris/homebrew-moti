@@ -1,0 +1,27 @@
+class Moti < Formula
+  desc "Motivational quotes menu bar app for macOS"
+  homepage "https://trymoti.app"
+
+  url "https://trymoti.app/Moti.dmg"
+
+  sha256 "d5d388ec4a05b11fbc5558cacf34353d0679c3e3e05ec4e3c3a19be817264869"
+  version "0.1.0"
+  license "MIT"
+
+  bottle :unneeded
+
+  depends_on :macos => :catalina
+
+  def install
+    system "hdiutil", "attach", cached_download, "-nobrowse", "-plist"
+    app_dir = Dir["/Volumes/Moti/*.app"].first
+    cp_r app_dir, "#{prefix}/"
+    system "hdiutil", "detach", "/Volumes/Moti"
+  end
+
+  def post_install
+    Dir["#{prefix}/Moti.app"].each do |app|
+      system "chmod", "-R", "755", app
+    end
+  end
+end
