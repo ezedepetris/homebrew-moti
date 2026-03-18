@@ -12,8 +12,8 @@ class Moti < Formula
   depends_on :macos => :catalina
 
   def install
-    dmg_path = cached_download
-    system "hdiutil", "attach", dmg_path, "-nobrowse", "-mountpoint", "/Volumes/Moti"
+    dmg = download
+    system "hdiutil", "attach", dmg, "-nobrowse", "-mountpoint", "/Volumes/Moti"
     cp_r "/Volumes/Moti/Moti.app", "#{prefix}/"
     system "hdiutil", "detach", "/Volumes/Moti"
   end
