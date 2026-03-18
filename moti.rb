@@ -7,8 +7,6 @@ class Moti < Formula
   version "0.1.0"
   license "MIT"
 
-  bottle :unneeded
-
   depends_on :macos => :catalina
 
   def install
