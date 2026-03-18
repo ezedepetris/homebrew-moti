@@ -13,7 +13,7 @@ class Moti < Formula
 
   def install
     dmg_path = cached_download
-    system "hdiutil", "attach", dmg_path, "-nobrowse", "-plist", stdin: ""
+    system "hdiutil", "attach", dmg_path, "-nobrowse", "-plist", out: "/dev/null", err: "/dev/null"
     app_dir = Dir["/Volumes/Moti/*.app"].first
     cp_r app_dir, "#{prefix}/"
     system "hdiutil", "detach", "/Volumes/Moti"
