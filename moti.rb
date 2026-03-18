@@ -3,7 +3,6 @@ class Moti < Formula
   homepage "https://trymoti.app"
 
   url "https://trymoti.app/Moti.dmg"
-
   sha256 "d5d388ec4a05b11fbc5558cacf34353d0679c3e3e05ec4e3c3a19be817264869"
   version "0.1.0"
   license "MIT"
@@ -13,15 +12,10 @@ class Moti < Formula
   depends_on :macos => :catalina
 
   def install
-    system "hdiutil", "attach", cached_download, "-nobrowse", "-plist"
+    dmg_path = cached_download
+    system "hdiutil", "attach", dmg_path, "-nobrowse", "-plist", stdin: ""
     app_dir = Dir["/Volumes/Moti/*.app"].first
     cp_r app_dir, "#{prefix}/"
     system "hdiutil", "detach", "/Volumes/Moti"
-  end
-
-  def post_install
-    Dir["#{prefix}/Moti.app"].each do |app|
-      system "chmod", "-R", "755", app
-    end
   end
 end
