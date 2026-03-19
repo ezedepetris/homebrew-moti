@@ -3,8 +3,8 @@ class Moti < Formula
   homepage "https://trymoti.app"
 
   url "https://trymoti.app/Moti.dmg"
-  sha256 "d5d388ec4a05b11fbc5558cacf34353d0679c3e3e05ec4e3c3a19be817264869"
-  version "0.1.0"
+  sha256 "93ce78743c7d5c966e8514647d99cd3142222ced8f018f3726c180bf470946aa"
+  version "0.1.1"
   license "MIT"
 
   depends_on :macos => :catalina
