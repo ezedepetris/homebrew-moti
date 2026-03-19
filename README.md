@@ -28,6 +28,6 @@ brew untap ezedepetris/moti
 
 ## About Moti
 
-Moti is a native macOS menu bar widget that delivers motivational quotes straight to your desktop.
+Moti is a native macOS menu bar widget that delivers motivational, mindset, business quotes straight to your desktop.
 
-Learn more: https://motiapp.com
+Learn more: https://trymoti.app
